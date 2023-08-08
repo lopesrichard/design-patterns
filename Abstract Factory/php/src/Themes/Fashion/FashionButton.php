@@ -2,6 +2,7 @@
 
 namespace AbstractFactory\Themes\Fashion;
 
+use AbstractFactory\Themes\Enum\Cursor;
 use AbstractFactory\Themes\Color;
 use AbstractFactory\Interfaces\Button;
 use AbstractFactory\Themes\Stylesheet;
@@ -24,6 +25,7 @@ class FashionButton implements Button
     public function render(): string
     {
         $style = new Stylesheet();
+        $style->setCursor(Cursor::POINTER);
         $style->setFontSize(14);
         $style->setColor(Color::fromRGB(255, 255, 255));
         $style->setBackgroundColor(Color::fromRGB(177, 7, 164));

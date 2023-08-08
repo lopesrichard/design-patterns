@@ -4,6 +4,7 @@ namespace AbstractFactory\Themes\Sky;
 
 use AbstractFactory\Interfaces\Button;
 
+use AbstractFactory\Themes\Enum\Cursor;
 use AbstractFactory\Themes\Color;
 use AbstractFactory\Themes\Stylesheet;
 
@@ -27,6 +28,7 @@ class SkyButton implements Button
     public function render(): string
     {
         $style = new Stylesheet();
+        $style->setCursor(Cursor::POINTER);
         $style->setFontSize(18);
         $style->setColor(Color::fromRGB(255, 255, 255));
         $style->setBackgroundColor(Color::fromRGB(46, 85, 148));

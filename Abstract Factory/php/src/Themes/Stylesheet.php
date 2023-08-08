@@ -6,6 +6,7 @@ use AbstractFactory\Themes\Color;
 
 final class Stylesheet
 {
+    private $cursor;
     private $fontSize;
     private $color;
     private $backgroundColor;
@@ -17,6 +18,11 @@ final class Stylesheet
     private $justifyContent;
     private $height;
     private $width;
+
+    public function setCursor(string $cursor): void
+    {
+        $this->cursor = $cursor;
+    }
 
     public function setFontSize(int $fontSize): void
     {
@@ -45,7 +51,7 @@ final class Stylesheet
 
     public function setBorderRadius(int $borderRadius): void
     {
-        $this->borderRadius = "{$borderRadius}px";
+        $this->borderRadius = $borderRadius;
     }
 
     public function setDisplay(string $display): void
@@ -76,6 +82,10 @@ final class Stylesheet
     public function makeStyle(): string
     {
         $style  = '';
+
+        if ($this->cursor !== null) {
+            $style .= "cursor:{$this->cursor};";
+        }
 
         if ($this->fontSize !== null) {
             $style .= "font-size:{$this->fontSize}px;";
